@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 352516523}
   - component: {fileID: 352516522}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,6 +1334,7 @@ GameObject:
   - component: {fileID: 1084913444}
   - component: {fileID: 1084913443}
   - component: {fileID: 1084913442}
+  - component: {fileID: 1084913445}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -1443,6 +1444,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084913440}
   m_CullTransparentMesh: 1
+--- !u!114 &1084913445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084913440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775cb6f68e5be144082e2d7d61cd1e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Line1: {fileID: 1603979213}
 --- !u!1001 &1138202129
 PrefabInstance:
   m_ObjectHideFlags: 0
