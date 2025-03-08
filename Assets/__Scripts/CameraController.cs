@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject       car;
     private Vector3         offset;
+    private Vector3         angle;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,6 @@ public class CameraController : MonoBehaviour
     {
         // aligns camera to game option, matching position
         transform.position = car.transform.position + offset;
+        // transform.rotation = car.transform.rotation;
     }
 }
