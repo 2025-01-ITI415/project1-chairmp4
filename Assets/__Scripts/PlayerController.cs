@@ -40,17 +40,14 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement.Normalize();
         
-        // rb.AddForce(movement * speed); 
-
-        // need to figure out how to apply rotation while maintaining rb command bc this breaks collision
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);  
-
+        rb.AddForce(movement * speed); 
+        
         // enables player rotation upon input
         if (movement != Vector3.zero){
             transform.forward = movement;
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            rb.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
          }
     }
     
