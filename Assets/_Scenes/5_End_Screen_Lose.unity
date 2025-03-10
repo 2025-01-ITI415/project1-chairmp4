@@ -378,7 +378,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Failed to Reach the Grocery Store.
+  m_Text: You Failed to Find the Cat Food.
 --- !u!222 &253943559
 CanvasRenderer:
   m_ObjectHideFlags: 0
