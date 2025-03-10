@@ -19,6 +19,6 @@ public class CameraController : MonoBehaviour
     {
         // aligns camera to game option, matching position
         transform.position = car.transform.position + offset;
-        transform.rotation = car.transform.rotation;
+        // transform.rotation = car.transform.rotation;
     }
 }

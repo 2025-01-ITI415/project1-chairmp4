@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody           rb;
     private float               movementX;
     private float               movementY;
+    public float               rotationSpeed = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,18 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        movement.Normalize();
         
-        rb.AddForce(movement * speed);  
+       // rb.AddForce(movement * speed); trying to find out how to reapply rb w/ transform to enable drag and bring back collision
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);  
+
+        // enables player rotation upon input
+        if (movement != Vector3.zero){
+            transform.forward = movement;
+            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+        }
     }
 }
