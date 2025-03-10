@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     // creating variable for controlling in inspector
     public float                speed = 0;
     private Rigidbody           rb;
+    private int                 count;
     private float               movementX;
     private float               movementY;
     public float               rotationSpeed = 0;
@@ -19,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         // adds Rigidbody component to rb variable for player movemenet
         rb = GetComponent<Rigidbody>();
+        count = 0;
     }
 
     // creating a function using InputSystem Unity package
@@ -35,7 +40,9 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement.Normalize();
         
-       // rb.AddForce(movement * speed); trying to find out how to reapply rb w/ transform to enable drag and bring back collision
+        // rb.AddForce(movement * speed); 
+
+        // need to figure out how to apply rotation while maintaining rb command bc this breaks collision
         transform.Translate(movement * speed * Time.deltaTime, Space.World);  
 
         // enables player rotation upon input
@@ -44,7 +51,19 @@ public class PlayerController : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+         }
+    }
+    
+    public void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("PickUp")){
+            other.gameObject.SetActive(false);
+        }
 
+        count = count + 1;
+        Debug.Log("count went up");
+
+        if ( count <= 1 ){
+            SceneManager.LoadScene("4_End_Screen_Win");
         }
     }
 }
