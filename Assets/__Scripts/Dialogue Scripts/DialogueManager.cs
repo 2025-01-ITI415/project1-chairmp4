@@ -26,24 +26,30 @@ public class DialogueManager : MonoBehaviour
 
         nameText.text = dialogue.charactername;
 
+        // Debug.Log("starting convo");
+
         sentences.Clear(); //removes previous dialogue
 
-        foreach (string sentence in dialogue.sentences){
+        foreach ( string sentence in dialogue.sentences ){
             sentences.Enqueue(sentence); //adds all dialogue in individual trigger section
         }
+
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence(){
-        if (sentences.Count == 0){
+        if ( sentences.Count == 0 ){
             EndDialogue();
             return;
         }
 
         string sentence = sentences.Dequeue();
+        // Debug.Log(sentence);
         dialogueText.text = sentence;
     }
 
     void EndDialogue(){
-
+        // Debug.Log("End of convo");
+        SceneManager.LoadScene("2_Main_Scene_Prechange"); //transitions to gameplay section
     }
 }

@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue         dialogue;
 
-    public void Awake(){
+    public void Start(){ //awake ensures this occurs on start, which is when we change to this scene
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }

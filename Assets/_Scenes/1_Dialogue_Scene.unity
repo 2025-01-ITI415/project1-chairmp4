@@ -558,9 +558,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1729115509}
-  - {fileID: 1084913441}
   - {fileID: 1603979212}
   - {fileID: 817602310}
+  - {fileID: 1084913441}
   m_Father: {fileID: 352516525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377643159
@@ -603,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 377643159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 339.5, y: 189.28787, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -923,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733368984}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1244,7 +1244,6 @@ GameObject:
   - component: {fileID: 1084913444}
   - component: {fileID: 1084913443}
   - component: {fileID: 1084913442}
-  - component: {fileID: 1084913445}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -1269,7 +1268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366.5149, y: -47.246384}
+  m_AnchoredPosition: {x: 366.5149, y: -47.2464}
   m_SizeDelta: {x: 87.6963, y: 33.0918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084913442
@@ -1285,7 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1366,20 +1365,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084913440}
   m_CullTransparentMesh: 1
---- !u!114 &1084913445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084913440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775cb6f68e5be144082e2d7d61cd1e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 1603979213}
-  dialogueText: {fileID: 817602311}
 --- !u!1 &1133503142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,7 +2575,7 @@ GameObject:
   - component: {fileID: 1785221770}
   - component: {fileID: 1785221771}
   m_Layer: 0
-  m_Name: Line 1
+  m_Name: Rover 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2626,8 +2611,33 @@ MonoBehaviour:
   dialogue:
     charactername: Rover
     sentences:
-    - Oh, you're awake!
-    - Line two!
+    - '
+
+      Oh, you''re finally ready to drive!'
+    - '
+
+      Sorry about him. You were dozing off for a bit, and we were starting
+      to get... concerned.'
+    - '
+
+      He was so worried about you, he was practically losing hair! I told
+      him to calm down and see! You''re totally a-okay!'
+    - '
+
+      Hush, now. I''d hope you remember how to drive-'
+    - '
+
+      Don''t be patronizing, they''re a great driver!'
+    - '
+
+      I said hush. Use the steering wheel and pedals in front of you to
+      drive.'
+    - '
+
+      Now, let''s get to the grocery store pronto.'
+    - '
+
+      Yeaaaaah~ Let''s get cruisin''!'
 --- !u!1 &1868133681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,6 +3558,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 377643161}
+  - {fileID: 733368987}
   - {fileID: 835973194}
   - {fileID: 328662228}
   - {fileID: 1967901851}
@@ -3556,5 +3567,4 @@ SceneRoots:
   - {fileID: 1138202129}
   - {fileID: 1501016609}
   - {fileID: 352516525}
-  - {fileID: 733368987}
   - {fileID: 345683359}
