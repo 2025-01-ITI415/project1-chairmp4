@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private int                 count;
     private float               movementX;
     private float               movementY;
-    public float               rotationSpeed = 0;
+    public float                rotationSpeed;
 
 
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         movement.Normalize();
         
         rb.AddForce(movement * speed); 
-        
+
         // enables player rotation upon input
         if (movement != Vector3.zero){
             transform.forward = movement;
