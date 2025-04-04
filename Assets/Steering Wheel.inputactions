@@ -1,0 +1,165 @@
+{
+    "name": "Steering Wheel",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "62f69f7a-e28f-4816-814f-85646d0eddba",
+            "actions": [
+                {
+                    "name": "Steer Left",
+                    "type": "Button",
+                    "id": "f8a88548-1a2f-4549-b472-f4c3e7aa44c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer Right",
+                    "type": "Button",
+                    "id": "6676e575-afbb-4ed0-a3dc-9e7d672cd954",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Bottom R",
+                    "type": "Button",
+                    "id": "802161f7-4619-4c68-86ae-67d13d1b5d79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Top R",
+                    "type": "Button",
+                    "id": "6be05a0a-3581-4f0a-9b11-e89d2fea3064",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Bottom L",
+                    "type": "Button",
+                    "id": "1b511a0a-eeb8-491f-929d-82a1485cf13d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Top L",
+                    "type": "Button",
+                    "id": "7faea087-d679-4d2a-af51-de14539b679e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Accelerate L",
+                    "type": "Button",
+                    "id": "3f4a9f0b-203b-4565-9b29-db613aebd9a5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3d773547-87a9-47fa-8ece-bf03d1478ad6",
+                    "path": "<HID::Saitek R440 Force Wheel>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "964e8276-09ac-45ab-8529-d58afd74d28f",
+                    "path": "<HID::Saitek R440 Force Wheel>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8551452b-b7da-4fa5-8b4f-a40f3e6dfa70",
+                    "path": "<HID::Saitek R440 Force Wheel>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bottom R",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adcc6d4c-e4d1-4333-b7b3-d57b687a9e8a",
+                    "path": "<HID::Saitek R440 Force Wheel>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Top R",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7e356c6-6517-4a80-8807-ee8d44dabeec",
+                    "path": "<HID::Saitek R440 Force Wheel>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bottom L",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2648773-24dd-40e3-b41d-d9f07b68995a",
+                    "path": "<HID::Saitek R440 Force Wheel>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Top L",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "436d84f9-cdce-4bf4-b20f-ebf4a73ea995",
+                    "path": "<HID::Saitek R440 Force Wheel>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate L",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58561794-d5bb-435b-b83b-9d757c76cc69",
+                    "path": "<HID::Saitek R440 Force Wheel>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate L",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

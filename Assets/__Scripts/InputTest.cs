@@ -6,7 +6,7 @@ public class InputTest : MonoBehaviour
 {
  // Use this for initialization
  void Update () {
-     for (int joystick = 1; joystick < 5; joystick++ ) {
+     for (int joystick = 1; joystick < 10; joystick++ ) {
          for (int button = 0; button < 20; button++ ) {
              if (Input.GetKey("joystick " + joystick + " button " + button))
              {
