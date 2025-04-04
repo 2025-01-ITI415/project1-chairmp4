@@ -9,15 +9,22 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     [SerializeField] float         remainingTime;
+    [SerializeField] float         startingTime;
     [SerializeField] Text          timerText; //enables input in inspector
     // Update is called once per frame
     void Update()
     {
+        startingTime = remainingTime; 
+
+        if ( Input.anyKeyDown ){
+            remainingTime = startingTime;
+        }
         if ( remainingTime > 0 ){
             remainingTime -= Time.deltaTime;
         }
-        else if ( remainingTime < 0 ){
-            SceneManager.LoadScene("5_End_Screen_Lose");
+        // Checks to see if no inputs and remaining time is less than zero
+        else if ( !Input.anyKeyDown && remainingTime < 0 ){
+            SceneManager.LoadScene("0_Start_Screen"); //reloads game
         }
 
         int minutes = Mathf.FloorToInt( remainingTime / 60 );
