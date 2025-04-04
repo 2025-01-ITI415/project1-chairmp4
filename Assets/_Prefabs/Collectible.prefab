@@ -121,11 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3802715d90219e479551a20331c062a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectiblePrefab: {fileID: 0}
+  collectiblePrefab: {fileID: 5818446299734868349}
+  SpawnPoints: []
   rotationX: 0
   rotationY: 45
   rotationZ: 15
-  spawnTotal: 0
 --- !u!65 &8773935603838332907
 BoxCollider:
   m_ObjectHideFlags: 0

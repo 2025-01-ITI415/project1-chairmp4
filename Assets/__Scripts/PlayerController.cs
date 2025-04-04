@@ -27,40 +27,44 @@ public class PlayerController : MonoBehaviour
     }
 
     // creating a function using InputSystem Unity package
-    void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+    // void OnMove(InputValue movementValue)
+    // {
+    //     Vector2 movementVector = movementValue.Get<Vector2>();
 
-        movementX = movementVector.x;
-        movementY = movementVector.y;
-    }
+    //     movementX = movementVector.x;
+    //     movementY = movementVector.y;
+    // }
 
-    void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        movement.Normalize();
+    // void FixedUpdate()
+    // {
+    //     Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+    //     movement.Normalize();
         
-        rb.AddForce(movement * speed); 
+    //     rb.AddForce(movement * speed); 
 
-        // enables player rotation upon input
-        if (movement != Vector3.zero){
-            transform.forward = movement;
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+    //     // enables player rotation upon input
+    //     if (movement != Vector3.zero){
+    //         transform.forward = movement;
+    //         Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
-            rb.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-         }
-    }
+    //         rb.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+    //      }
+    // }
     
     public void OnTriggerEnter(Collider other){
-        if (other.gameObject.CompareTag("PickUp")){
+        if (other.gameObject.CompareTag("PickUp")) // checks tag assigned to empty gameobject
+        { 
+            // turns off game object
             other.gameObject.SetActive(false);
         }
 
+        // increases count for collection
         count = count + 1;
         Debug.Log("count went up");
 
+        // goes to next screen
         if ( count <= 1 ){
-            SceneManager.LoadScene("4_End_Screen_Win");
+            SceneManager.LoadScene("4_End_Screen_Lose");
         }
     }
 }

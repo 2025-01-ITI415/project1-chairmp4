@@ -12,12 +12,16 @@ public class Timer : MonoBehaviour
     [SerializeField] float         startingTime;
     [SerializeField] Text          timerText; //enables input in inspector
     // Update is called once per frame
+
+    void ResetTimer(){
+        remainingTime = startingTime;
+    }
     void Update()
     {
-        startingTime = remainingTime; 
-
         if ( Input.anyKeyDown ){
-            remainingTime = startingTime;
+            ResetTimer();
+            // Debug.Log(remainingTime);
+            // Debug.Log(startingTime);
         }
         if ( remainingTime > 0 ){
             remainingTime -= Time.deltaTime;
@@ -29,6 +33,7 @@ public class Timer : MonoBehaviour
 
         int minutes = Mathf.FloorToInt( remainingTime / 60 );
         int seconds = Mathf.FloorToInt ( remainingTime % 60 );
+        
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         
     }
