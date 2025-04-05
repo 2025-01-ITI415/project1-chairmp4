@@ -52,4 +52,19 @@ public class DialogueManager : MonoBehaviour
         // Debug.Log("End of convo");
         SceneManager.LoadScene("2_Main_Scene_Prechange"); //transitions to gameplay section
     }
+
+    void Update()
+    {
+        // Check for space key to display next sentence
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DisplayNextSentence();
+        }
+
+        // Check for enter key to end the dialogue
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EndDialogue();
+        }
+    }
 }
