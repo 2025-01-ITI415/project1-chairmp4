@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "3a79c962-cbce-4a55-a617-6f774e0c7d39",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -157,17 +157,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3ea4d645-4504-4529-b061-ab81934c3752",
-                    "path": "<Joystick>/stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -264,7 +253,7 @@
                     "name": "Navigate",
                     "type": "PassThrough",
                     "id": "81299cda-3b38-45c9-9f8b-990325d7c09b",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -346,6 +335,15 @@
                     "type": "PassThrough",
                     "id": "862eaa00-4c9c-4e27-a587-2771d3dcbb5d",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WheelClick",
+                    "type": "PassThrough",
+                    "id": "0fdf364b-583c-4bcf-910f-82415769167f",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -789,6 +787,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67c8edff-c5c7-4c35-a777-2620b032ca40",
+                    "path": "<HID::6A3 FF04>/button3",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "WheelClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

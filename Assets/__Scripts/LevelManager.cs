@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,39 +15,45 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    void Update()
+      void Update()
     {
+
         if (dialogueManager != null && dialogueManager.gameObject.activeInHierarchy)
         {
             return;  // Skip input processing if the DialogueManager is active
         }
         
-        // Check for Enter key to simulate "Menu" button press
-        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.M))
+        // Return to title screen, 4_End_Screen
+        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton2) ) //BL
         {
             TitleButtonPressed();
         }
 
-        // Check for Space key to simulate "Return" button press
-        if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.N))
+        // Begin Gameplay, 0_Start_Screen
+        if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.JoystickButton1)) //TR
         {
             NextButtonPressed();
         }
 
-        if (Input.GetKeyDown(KeyCode.Backslash) || Input.GetKeyDown(KeyCode.B))
+        // Return to gameplay, 4_End_Screen
+        if (Input.GetKeyDown(KeyCode.Backslash) || Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.JoystickButton3)) //BR
         {
             RestartButtonPressed();
         }
     }
 
+    // Return to title screen
     void TitleButtonPressed()
     {
         LoadScene("0_Start_Screen");
     }
+    // Begin Gameplay
     void NextButtonPressed()
     {
         LoadScene("1_Dialogue_Scene");
     }
+
+    // Return to gameplay
     void RestartButtonPressed()
     {
         LoadScene("1_Dialogue_Scene");

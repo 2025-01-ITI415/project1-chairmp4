@@ -56,13 +56,13 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         // Check for space key to display next sentence
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton3)) // BR
         {
             DisplayNextSentence();
         }
 
         // Check for enter key to end the dialogue
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.JoystickButton2)) //BL 
         {
             EndDialogue();
         }
