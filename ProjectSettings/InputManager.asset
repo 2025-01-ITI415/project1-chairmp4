@@ -25,7 +25,7 @@ InputManager:
     m_Name: Horizontal Steer
     descriptiveName: Steering wheel
     descriptiveNegativeName: 
-    negativeButton: joystick button 8
+    negativeButton: left
     positiveButton: right
     altNegativeButton: a
     altPositiveButton: d
@@ -36,7 +36,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 0
   - serializedVersion: 3
     m_Name: Vertical
     descriptiveName: 
