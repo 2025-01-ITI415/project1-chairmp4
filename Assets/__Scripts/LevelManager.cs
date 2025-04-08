@@ -15,10 +15,13 @@ public class LevelManager : MonoBehaviour
 
       void Update()
     {
+        
+        // finds script component within dialogueManager asset
+        dialogueManager.GetComponent<DialogueManager>();
 
-        if (dialogueManager != null && dialogueManager.gameObject.activeInHierarchy)
+        if (dialogueManager.gameObject.activeInHierarchy)
         {
-            return;  // Skip input processing if the DialogueManager is active
+            return;  // skips rest of inputs in update if gameobject is present
         }
         
         // Return to title screen, 4_End_Screen
