@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
         // enables player rotation upon input
         if (movement != Vector3.zero){
-            // transform.forward = movement;
+            //transform.forward = movement;
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
             rb.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
