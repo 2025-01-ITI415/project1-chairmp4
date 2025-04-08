@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     public Text                 nameText;
     public Text                 dialogueText;
 
-    void Start()
+    void Awake()
     {
         sentences = new Queue<string>();
     }

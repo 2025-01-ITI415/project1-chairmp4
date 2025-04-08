@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class LevelManager : MonoBehaviour
 {
+    public DialogueManager       dialogueManager;
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -15,10 +16,10 @@ public class LevelManager : MonoBehaviour
       void Update()
     {
 
-        // if (dialogueManager != null && dialogueManager.gameObject.activeInHierarchy)
-        // {
-        //     return;  // Skip input processing if the DialogueManager is active
-        // }
+        if (dialogueManager != null && dialogueManager.gameObject.activeInHierarchy)
+        {
+            return;  // Skip input processing if the DialogueManager is active
+        }
         
         // Return to title screen, 4_End_Screen
         if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton2) ) //BL
