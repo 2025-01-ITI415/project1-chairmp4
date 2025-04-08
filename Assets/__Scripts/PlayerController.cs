@@ -33,6 +33,15 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
+        if ( Mathf.Abs(movementY) < 0.01f )
+        {
+            movementY = 0;
+        }
+        else 
+        {
+            movementY = movementY + 1;
+            movementY = movementY / 2f;
+        }
     }
 
     void FixedUpdate()
@@ -40,11 +49,11 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement.Normalize();
         
-        rb.AddForce(movement * speed); 
+        rb.velocity = movement * speed; 
 
         // enables player rotation upon input
         if (movement != Vector3.zero){
-            transform.forward = movement;
+            //transform.forward = movement;
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
             rb.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);

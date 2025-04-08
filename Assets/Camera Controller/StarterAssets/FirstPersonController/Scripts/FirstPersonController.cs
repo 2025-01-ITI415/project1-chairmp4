@@ -85,6 +85,18 @@ namespace StarterAssets
 				#endif
 			}
 		}
+		private bool IsCurrentJoystick
+		{
+			get
+			{
+				#if ENABLE_INPUT_SYSTEM
+				return _playerInput.currentControlScheme == "Joystick";
+				#else
+				return false;
+				#endif
+			}
+		}
+
 
 		private void Awake()
 		{
@@ -133,9 +145,9 @@ namespace StarterAssets
 			if (_input.look.sqrMagnitude >= _threshold)
 			{
 				//Don't multiply mouse input by Time.deltaTime
-				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : 1.0f;
 				
-				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
+				// _cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
 				// clamp our pitch rotation
