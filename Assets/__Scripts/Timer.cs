@@ -12,18 +12,21 @@ public class Timer : MonoBehaviour
     [SerializeField] float         startingTime;
     [SerializeField] Text          timerText; //enables input in inspector
     // Update is called once per frame
+
+    void ResetTimer()
+    {
+        remainingTime = startingTime;
+    }
     void Update()
     {
-        startingTime = remainingTime; 
-
-        if ( Input.anyKeyDown ){
-            remainingTime = startingTime;
+        if ( Input.anyKey ){
+            ResetTimer();
         }
         if ( remainingTime > 0 ){
             remainingTime -= Time.deltaTime;
         }
         // Checks to see if no inputs and remaining time is less than zero
-        else if ( !Input.anyKeyDown && remainingTime < 0 ){
+        else if ( !Input.anyKey && remainingTime < 0 ){
             SceneManager.LoadScene("0_Start_Screen"); //reloads game
         }
 
