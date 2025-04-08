@@ -5,6 +5,6 @@ using UnityEngine;
 public class testanimation : MonoBehaviour
 {
     public void PrintMessage(){
-
+        return;
     }
 }
