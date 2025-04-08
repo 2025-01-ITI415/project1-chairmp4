@@ -12,14 +12,12 @@ public class Timer : MonoBehaviour
     [SerializeField] float         startingTime;
     [SerializeField] Text          timerText; //enables input in inspector
     // Update is called once per frame
-
-    void ResetTime(){
-        remainingTime = startingTime;
-    }
     void Update()
     {
+        startingTime = remainingTime; 
+
         if ( Input.anyKeyDown ){
-            ResetTime();
+            remainingTime = startingTime;
         }
         if ( remainingTime > 0 ){
             remainingTime -= Time.deltaTime;

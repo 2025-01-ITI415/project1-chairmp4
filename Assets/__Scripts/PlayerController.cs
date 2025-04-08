@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("count went up");
 
         if ( count <= 1 ){
-            SceneManager.LoadScene("4_End_Screen_Lose");
+            SceneManager.LoadScene("4_End_Screen_Win");
         }
     }
 }
