@@ -13,9 +13,11 @@ public class DialogueManager : MonoBehaviour
 {
 // First in first out data type
     private Queue<string>       sentences;
-
     public Text                 nameText;
     public Text                 dialogueText;
+    public Animator             RoverAnimator;
+    private Dialogue            currentDialogue;
+    private int                 sentenceIndex = 0;
 
     void Awake()
     {
@@ -23,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue){
+
+        currentDialogue = dialogue;
 
         nameText.text = dialogue.charactername;
 
@@ -34,6 +38,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence); //adds all dialogue in individual trigger section
         }
 
+        sentenceIndex = 0;
         DisplayNextSentence();
     }
 
@@ -46,7 +51,23 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         // Debug.Log(sentence);
         dialogueText.text = sentence;
+
+        TriggerAnimations(sentenceIndex);
+
+        sentenceIndex++;
+
     }
+
+    private void TriggerAnimations(int index)
+    {
+        if (currentDialogue != null && currentDialogue.triggerName != null && currentDialogue.triggerName.Length > index)
+        {
+            string trigger = currentDialogue.triggerName[index]; // Get the trigger for the current sentence
+            RoverAnimator.SetTrigger(trigger); // Trigger the animation for the current sentence
+
+            Debug.Log(trigger);
+    }
+}
 
     void EndDialogue(){
         // Debug.Log("End of convo");
@@ -58,6 +79,7 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton3)) // BR
         {
             DisplayNextSentence();
+            TriggerAnimations(sentenceIndex);
         }
 
         // Check for enter key to end the dialogue
