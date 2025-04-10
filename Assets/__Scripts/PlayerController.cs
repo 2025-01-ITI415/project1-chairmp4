@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class PlayerController : MonoBehaviour
     // public float                speed = 0;
     private Rigidbody           rb;
     private int                 count;
-    private float               movementX;
-    private float               movementY;
-    public float                rotationSpeed;
-
+    public PlayableDirector     HitCS;
+    // private float               movementX;
+    // private float               movementY;
+    // public float                rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -70,11 +71,35 @@ public class PlayerController : MonoBehaviour
             return; //prevents count from going up, bypasses this script
         }
 
-        count = count + 1;
-        Debug.Log("count went up");
+        // Using pickup tag regardless of scene, but want to send player to certain
+        // Locations depending on their state. Doing so with scene checks
+        Scene activescene = SceneManager.GetActiveScene();
 
-        if ( count <= 1 ){
-            SceneManager.LoadScene("3_Main_Scene_Postchange");
+        // Checks if we are currently in prechange world
+        if ( activescene.name == "2_Main_Scene_Prechange" )
+        {
+            count = count + 1;
+            Debug.Log("count went up");
+
+            if ( count <= 1 )
+            {
+                HitCS.stopped += OnTimelineStopped;
+                HitCS.Play();
+            }
         }
+
+        if ( activescene.name == "3_Main_Scene_Postchange" )
+        {
+            SceneManager.LoadScene("4_Dialogue_Post");
+        }
+
+
+    }
+
+    private void OnTimelineStopped(PlayableDirector director)
+    {
+        HitCS.stopped -= OnTimelineStopped;
+
+        SceneManager.LoadScene("3_Main_Scene_Postchange");
     }
 }

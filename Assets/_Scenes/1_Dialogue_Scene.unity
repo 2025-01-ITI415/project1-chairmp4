@@ -518,6 +518,7 @@ MonoBehaviour:
   nameText: {fileID: 1603979213}
   dialogueText: {fileID: 817602311}
   RoverAnimator: {fileID: 1925938781}
+  activescene: 
 --- !u!4 &377643161
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,12 +1635,13 @@ MonoBehaviour:
       Don''t be patronizing, they''re a great driver!'
     - '
 
-      I said hush. Use the accelator to move toward, break to reverse, and
-      steering wheel to steer.'
+      I said hush. Tilt the steering wheel to turn your car. Press the accelerator
+      and break pedals under  the table in front of you to resepectively accelerate
+      and reverse.'
     - '
 
-      Now, he dropped some cat food, so I need you to find it. It should
-      be somewhere in this town.'
+      Now, he''s been begging for cat food, so I need you to find a grocery
+      store. There should be one somewhere in this town.'
     - '
 
       Yeaaaaah~ Let''s get cruisin''!'
