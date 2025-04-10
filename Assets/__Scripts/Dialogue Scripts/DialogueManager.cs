@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public Animator             RoverAnimator;
     private Dialogue            currentDialogue;
     private int                 sentenceIndex = 0;
+    public string               activescene;
 
     void Awake()
     {
@@ -66,12 +67,39 @@ public class DialogueManager : MonoBehaviour
             RoverAnimator.SetTrigger(trigger); // Trigger the animation for the current sentence
 
             Debug.Log(trigger);
+
+            // Checks trigger and if on FGTrigger, prevents animation from looping back
+            string oppositeTrigger = (trigger == "FGTrigger") ? "LKTrigger" : "FGTrigger";
+            RoverAnimator.ResetTrigger(oppositeTrigger);
+
+            // Delay reset the one we just used
+            StartCoroutine(ResetTriggerDelayed(trigger));
+        }
     }
+private IEnumerator ResetTriggerDelayed(string trigger)
+{
+    // Wait one frame so Animator can process the trigger
+    yield return null;
+
+    RoverAnimator.ResetTrigger(trigger);
 }
 
-    void EndDialogue(){
+    void EndDialogue()
+    {
+        Scene activescene = SceneManager.GetActiveScene();
         // Debug.Log("End of convo");
-        SceneManager.LoadScene("2_Main_Scene_Prechange"); //transitions to gameplay section
+
+        // Checks if currently in first dialogue instance
+        if ( activescene.name == "1_Dialogue_Scene" )
+        {
+            SceneManager.LoadScene("2_Main_Scene_Prechange"); //transitions to gameplay section
+        }
+
+        // Checks if currently in second dialogue instance
+        if ( activescene.name == "4_Dialogue_Post")
+        {
+            SceneManager.LoadScene("5_End_Screen"); //transitions to end screen
+        }
     }
     void Update()
     {
@@ -79,7 +107,6 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton3)) // BR
         {
             DisplayNextSentence();
-            TriggerAnimations(sentenceIndex);
         }
 
         // Check for enter key to end the dialogue

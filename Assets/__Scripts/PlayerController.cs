@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
     }
 
+    // PREVIOUS INPUT SYSTEM!
     // // creating a function using InputSystem Unity package
     // void OnMove(InputValue movementValue)
     // {
@@ -64,12 +65,16 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp")){
             other.gameObject.SetActive(false);
         }
+        else //for colliders that are not pickup trigger events
+        {
+            return; //prevents count from going up, bypasses this script
+        }
 
         count = count + 1;
         Debug.Log("count went up");
 
         if ( count <= 1 ){
-            SceneManager.LoadScene("4_End_Screen");
+            SceneManager.LoadScene("3_Main_Scene_Postchange");
         }
     }
 }
